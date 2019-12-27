@@ -1,1 +1,1 @@
-Training
+Programming Training
