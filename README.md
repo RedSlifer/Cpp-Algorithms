@@ -1,1 +1,1 @@
-Programming Training
+Programming training in C++ Language
