@@ -1,1 +1,1 @@
-Programming training in C++ Language
+Repository for C++ exercises
