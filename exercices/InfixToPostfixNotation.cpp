@@ -1,6 +1,17 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stack>
 
-// Function to find precedence of operators
+int precedence_of_operators (char op);
+std::string infix_to_postfix (std::string expression);
+
+int main()
+{
+    std::cout << infix_to_postfix("( 1 + 2 ) * 3") << std::endl;
+    std::cout << infix_to_postfix("2 * ( 1 + 3 )") << std::endl;
+
+    return 0;
+}
+
 int precedence_of_operators (char op)
 {
     if (op == '+' || op == '-')
@@ -21,39 +32,10 @@ int precedence_of_operators (char op)
     }
 }
 
-// Function to perform arithmetic operations
-int apply_operation (int a, int b, char op)
-{
-    if (op == '+')
-    {
-        return a + b;
-    }
-    else if (op == '-')
-    {
-        return a - b;
-    }
-    else if (op == '*')
-    {
-        return a * b;
-    }
-    else if (op == '/')
-    {
-        return a / b;
-    }
-    else if (op == '^')
-    {
-        return std::pow(a, b);
-    }
-    else
-    {
-        return a % b;
-    }
-}
-
-// Function that returns value of expression after evaluation
-int evaluate_expression (std::string expression)
+std::string infix_to_postfix (std::string expression)
 {
     int i;
+    std::string result_string;
     std::stack<int> operands; // stack to store integer values
     std::stack<char> operators; // stack to store operators
 
@@ -81,22 +63,16 @@ int evaluate_expression (std::string expression)
                 value = (value * 10) + (expression[i] - '0');
                 i++;
             }
-            operands.push(value);
+            result_string.append(std::to_string(value));
+            result_string.append(" ");
         }
         // If right brace encountered, solve left brace
         else if (expression[i] == ')')
         {
-            //int first_operand, second_operand;
-
             while (!operators.empty() && operators.top() != '(')
             {
-                int first_operand = operands.top();
-                operands.pop();
-
-                int second_operand = operands.top();
-                operands.pop();
-
-                operands.push(apply_operation(second_operand, first_operand, operators.top()));
+                result_string.push_back(operators.top());
+                result_string.append(" ");
                 operators.pop();
             }
             // Pop left brace
@@ -112,17 +88,10 @@ int evaluate_expression (std::string expression)
             While top of 'operators' has same or greater precedence to current token, which is an operator.
             Apply operator on top of 'operators' to top two elements in operands stack
             */
-            //int first_operand, second_operand;
-
             while (!operators.empty() && precedence_of_operators(operators.top()) >= precedence_of_operators(expression[i]))
             {
-                int first_operand = operands.top();
-                operands.pop();
-
-                int second_operand = operands.top();
-                operands.pop();
-
-                operands.push(apply_operation(second_operand, first_operand, operators.top()));
+                result_string.push_back(operators.top());
+                result_string.append(" ");
                 operators.pop();
             }
 
@@ -133,26 +102,10 @@ int evaluate_expression (std::string expression)
     // Entire expression has been parsed at this point, apply remaining operators to remaining operands
     while (!operators.empty())
     {
-        int first_operand = operands.top();
-        operands.pop();
-
-        int second_operand = operands.top();
-        operands.pop();
-
-        operands.push(apply_operation(second_operand, first_operand, operators.top()));
+        result_string.push_back(operators.top());
+        result_string.append(" ");
         operators.pop();
     }
-    // Top of 'operands' contains result, return it
-    return operands.top();
-}
 
-int main()
-{
-    std::cout << evaluate_expression("10 + 2 * 6") << std::endl;
-    std::cout << evaluate_expression("100 * 2 + 12") << std::endl;
-    std::cout << evaluate_expression("100 * ( 2 + 12 )") << std::endl;
-    std::cout << evaluate_expression("100 * ( 2 + 12 ) / 14") << std::endl;
-    std::cout << evaluate_expression("( 13 + 2 ) * 4 - 3") << std::endl;
-    std::cout << evaluate_expression("( 5 * 2 ^ 3 + 2 * 3 % 2 ) * 4") << std::endl;
-    return 0;
+    return result_string;
 }

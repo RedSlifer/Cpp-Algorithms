@@ -1,11 +1,9 @@
 #include <iostream>
-#include <array>
 
-template <typename T, unsigned S>
-T binary_search(std::array<T, S> array, int key)
+int binary_search(const int array[], int key, int size)
 {
     int low_index = 0;
-    int high_index = S - 1;
+    int high_index = size - 1;
     int middle_index;
 
     while (high_index >= low_index)
@@ -24,15 +22,15 @@ T binary_search(std::array<T, S> array, int key)
             return middle_index;
         }
     }
-    return false;
+    return -low_index - 1;
 }
 
 int main()
 {
-    const unsigned SIZE = 13;
-    std::array<int, SIZE> array {2, 4, 7, 10, 11, 45, 50, 59, 60, 66, 69, 70, 79};
+   const unsigned SIZE = 13;
+   int array[SIZE] = {2, 4, 7, 10, 11, 45, 50, 59, 60, 66, 69, 70, 79};
 
-    std::cout << binary_search(array, 4) << std::endl;
+   std::cout << binary_search(array, 3, SIZE) << std::endl;
 
-    return 0;
+   return 0;
 }

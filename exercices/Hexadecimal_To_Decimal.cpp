@@ -19,7 +19,8 @@ int main()
             decimal_number = decimal_number * 16 + (hexadecimal_number[i] - '0');
         }
     }
-    std::cout << decimal_number << std::endl;
+    
+	std::cout << decimal_number << std::endl;
 
     return 0;
 }
