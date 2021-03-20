@@ -1,3 +1,11 @@
 /cmake-build-debug/*
 CMakeLists.txt
-.idea/*
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../:\Users\cassio\CLionProjects\Cpp-Algorithms\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
