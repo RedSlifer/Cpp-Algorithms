@@ -1,1 +1,1 @@
-Repository for C++ exercises
+Repository for algorithms written in C++ Language
