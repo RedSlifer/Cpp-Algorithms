@@ -2,7 +2,9 @@
 
 int main()
 {
-    double n1 = 1, n2 = 0;
+    double n1, n2;
+
+    std::cin >> n1 >> n2;
 
     try
     {
