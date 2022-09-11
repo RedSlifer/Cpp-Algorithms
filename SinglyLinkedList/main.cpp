@@ -3,6 +3,7 @@
 
 int main()
 {
+    /*
     SinglyLinkedList<int> int_linked_list;
 
     int_linked_list.insert_front(1);
@@ -43,6 +44,7 @@ int main()
     int_linked_list.remove_node(2);
 
     int_linked_list.print();
+    */
 
     return 0;
 }

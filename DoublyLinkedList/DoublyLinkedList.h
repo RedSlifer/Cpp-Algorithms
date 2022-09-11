@@ -11,6 +11,7 @@ private:
         Node* previous_link;
         Node* next_link;
     };
+    
     Node* header_link;
     Node* trailer_link;
     unsigned length;
@@ -21,9 +22,9 @@ public:
 
 public:
     bool is_empty();
-    bool search(const T& element);
-    [[nodiscard]] int get_length() const;
-    void get_front() const;
+    bool search(const T& element) const;
+    int get_length() const;
+    T get_front() const;
     T get_back() const;
     void insert_front(const T& element);
     void insert_back(const T& element);

@@ -138,7 +138,7 @@ void SinglyLinkedList<T>::remove_node(int position)
         jumper -> link = (jumper -> link) -> link;
         delete node_to_delete;
 
-        this -> lenght --;
+        this -> lenght--;
     }
 }
 

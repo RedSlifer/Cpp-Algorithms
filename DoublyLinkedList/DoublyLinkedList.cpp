@@ -31,7 +31,7 @@ bool DoublyLinkedList<T>::is_empty()
 }
 
 template <typename T>
-bool DoublyLinkedList<T>::search(const T &element)
+bool DoublyLinkedList<T>::search(const T &element) const
 {
     Node* jumper = header_link;
 
@@ -55,10 +55,9 @@ int DoublyLinkedList<T>::get_length() const
 }
 
 template <typename T>
-void DoublyLinkedList<T>::get_front() const
+T DoublyLinkedList<T>::get_front() const
 {
-    std::cout << header_link -> element << "\n";
-    //return header_link -> element;
+    return header_link -> element;
 }
 
 template <typename T>
@@ -79,6 +78,7 @@ void DoublyLinkedList<T>::insert_front(const T& element)
     {
         header_link = new_node;
         trailer_link = new_node;
+        
         length++;
     }
     else
@@ -86,6 +86,7 @@ void DoublyLinkedList<T>::insert_front(const T& element)
         header_link -> previous_link = new_node;
         new_node -> next_link = header_link;
         header_link = new_node;
+        
         length++;
     }
 }
@@ -96,42 +97,39 @@ void DoublyLinkedList<T>::insert_back(const T& element)
     Node* new_node = new Node;
 
     new_node -> element = element;
-    trailer_link -> previous_link = new_node;
-    new_node -> next_link = trailer_link;
+
+    trailer_link -> next_link = new_node;
+    new_node -> previous_link = trailer_link;
+    new_node -> next_link = nullptr;
     trailer_link = new_node;
+    
     length++;
 }
 
 template <typename T>
 void DoublyLinkedList<T>::insert_node(unsigned position, const T& element)
 {
-    Node* jumper = header_link;
-    unsigned i;
-
     if (position == 0)
     {
         insert_front(element);
         length++;
     }
-    else if (position == length - 1)
-    {
-        insert_back(element);
-        length++;
-    }
     else
     {
-        Node* new_node;
+        Node* jumper = header_link;
+        Node* new_node = new Node;
         new_node -> element = element;
 
-        for (i = 1; i < position; i++)
+        for (unsigned i = 1; i <= position; i++)
         {
             jumper = jumper -> next_link;
         }
 
         new_node -> previous_link = jumper -> previous_link;
-        jumper -> previous_link -> next_link = new_node;
-        new_node -> next_link = jumper;
         jumper -> previous_link = new_node;
+        new_node -> next_link = jumper;
+        new_node->previous_link->next_link = new_node;
+        
         length++;
     }
 }
@@ -169,14 +167,9 @@ void DoublyLinkedList<T>::remove_node(unsigned position)
         remove_front();
         length--;
     }
-    else if (position == length - 1)
-    {
-        remove_back();
-        length--;
-    }
     else
     {
-        for (i = 1; i < position; i++)
+        for (i = 1; i <= position; i++)
         {
             jumper = jumper -> next_link;
         }
@@ -201,6 +194,8 @@ void DoublyLinkedList<T>::print()
         std::cout << jumper -> element << " ";
         jumper = jumper -> next_link;
     }
+
+    std::cout << std::endl;
 }
 
 template <typename T>
@@ -213,6 +208,8 @@ void DoublyLinkedList<T>::reverse_print()
         std::cout << jumper -> element << " ";
         jumper = jumper -> previous_link;
     }
+
+    std::cout << std::endl;
 }
 
 #endif
