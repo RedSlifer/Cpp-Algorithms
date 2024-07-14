@@ -1,80 +1,63 @@
 #include <iostream>
 
-class Television
-{
+class Television {
     public:
         int channel;
         int volume;
         bool on;
 
-        Television()
-        {
+        Television() {
             channel = 1;    // Default channel is 1
             volume = 1;     // Default volume is 1
-            on = false;     // By default television is off
+            on = false;     // By default, television is off
         }
 
-        void turn_on()
-        {
+        void turn_on() {
             on = true;
         }
 
-        void turn_off()
-        {
+        void turn_off() {
             on = false;
         }
 
-        void set_channel (int new_channel)
-        {
-            if (on && new_channel >= 1 && new_channel <= 120)
-            {
+        void set_channel (int new_channel) {
+            if (on && new_channel >= 1 && new_channel <= 120) {
                 channel = new_channel;
             }
         }
 
-        void set_volume (int new_volume)
-        {
-            if (on && new_volume >= 1 && new_volume <= 7)
-            {
+        void set_volume (int new_volume) {
+            if (on && new_volume >= 1 && new_volume <= 7) {
                 volume = new_volume;
             }
         }
 
-        void channel_up()
-        {
-            if (on && channel < 120)
-            {
+        void channel_up() {
+            if (on && channel < 120) {
                 channel++;
             }
         }
 
-        void channel_down()
-        {
-            if (on && channel > 1)
-            {
+        void channel_down() {
+            if (on && channel > 1) {
                 channel--;
             }
         }
 
-        void volume_up()
-        {
-            if (on && volume < 7)
-            {
+        void volume_up() {
+            if (on && volume < 7) {
                 volume++;
             }
         }
 
-        void volume_down()
-        {
-            if (on && volume > 1)
-            {
+        void volume_down() {
+            if (on && volume > 1) {
                 volume--;
             }
         }
 };
 
-int main()
-{
+int main() {
     Television television_1;
 
     television_1.turn_on();

@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Rational.h"
 
-int main()
-{
+int main() {
     Rational rational_number(9, 8);
     Rational other_rational_number(4, 3);
 

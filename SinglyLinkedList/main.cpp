@@ -1,8 +1,7 @@
 #include <iostream>
 #include "SinglyLinkedList.cpp"
 
-int main()
-{
+int main() {
     /*
     SinglyLinkedList<int> int_linked_list;
 

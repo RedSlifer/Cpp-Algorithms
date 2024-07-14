@@ -1,32 +1,27 @@
 #include <iostream>
 
-class Circle
-{
+class Circle {
     public:
         // Data field
         double radius;
         
         // Construct a default circle object
-        Circle()
-        {
+        Circle() {
             radius = 1;
         }
         
         // Construct a circle object
-        Circle(double new_radius)
-        {
+        Circle(double new_radius) {
             radius = new_radius;
         }
 
         // Return the area of this circle
-        double get_area()
-        {
+        double get_area() {
             return radius * radius * 3.14159;
         }
 };
 
-int main()
-{
+int main() {
     Circle circle_1(1.0);
     Circle circle_2(25);
     Circle circle_3(125);

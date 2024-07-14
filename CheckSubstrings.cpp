@@ -1,23 +1,19 @@
 #include <iostream>
 
-int check_substring(const std::string& string_1, const std::string& string_2)
-{
+int check_substring(const std::string& string_1, const std::string& string_2) {
     size_t index;
 
     index = string_2.find(string_1);
 
-    if (index != std::string::npos)
-    {
+    if (index != std::string::npos) {
         return index;
     }
-    else
-    {
+    else {
         return -1;
     }
 }
 
-int main()
-{
+int main() {
     std::string string_1;
     std::string string_2;
 

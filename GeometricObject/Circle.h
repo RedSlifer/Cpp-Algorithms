@@ -2,8 +2,7 @@
 #define CIRCLE_H
 #include "GeometricObject.h"
 
-class Circle: public GeometricObject
-{
+class Circle: public GeometricObject {
 private:
     double radius;
 

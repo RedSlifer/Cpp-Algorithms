@@ -3,8 +3,7 @@
 unsigned counter_even_digits(unsigned number);
 unsigned counter_even_digits(const std::string& number);
 
-int main()
-{
+int main() {
     unsigned number, number_even_digits, number_odd_digits;
 
     std::cin >> number;
@@ -18,32 +17,24 @@ int main()
     return 0;
 }
 
-unsigned counter_even_digits(unsigned number)
-{
+unsigned counter_even_digits(unsigned number) {
     return counter_even_digits(std::to_string(number));
 }
 
-unsigned counter_even_digits(const std::string& number)
-{
-    if (number.length() == 1)
-    {
-        if (std::stoi(number) % 2 == 0)
-        {
+unsigned counter_even_digits(const std::string& number) {
+    if (number.length() == 1) {
+        if (std::stoi(number) % 2 == 0) {
             return 1;
         }
-        else
-        {
+        else {
             return 0;
         }
     }
-    else
-    {
-        if (number[number.length() - 1] % 2 == 0)
-        {
+    else {
+        if (number[number.length() - 1] % 2 == 0) {
             return counter_even_digits(number.substr(0, number.length() - 1)) + 1;
         }
-        else
-        {
+        else {
             return counter_even_digits(number.substr(0, number.length() - 1));
         }
     }

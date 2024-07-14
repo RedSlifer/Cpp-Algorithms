@@ -7,22 +7,18 @@ bool is_valid_position(unsigned row, unsigned column);
 bool search_row_position(unsigned row);
 void print_result();
 
-int main()
-{
+int main() {
     search_row_position(0);
     print_result();
 
     return 0;
 }
 
-bool is_valid_position(unsigned row, unsigned column)
-{
+bool is_valid_position(unsigned row, unsigned column) {
     unsigned i;
 
-    for (i = 1; i <= row; i++)
-    {
-        if(queens[row - i] == column or queens[row - i] == column - i or queens[row - i] == column + i)
-        {
+    for (i = 1; i <= row; i++) {
+        if(queens[row - i] == column or queens[row - i] == column - i or queens[row - i] == column + i) {
             return false;
         }
     }
@@ -30,17 +26,14 @@ bool is_valid_position(unsigned row, unsigned column)
     return true;
 }
 
-bool search_row_position(unsigned row)
-{
+bool search_row_position(unsigned row) {
     unsigned column;
 
-    if (row == NUMBER_OF_QUEENS)
-    {
+    if (row == NUMBER_OF_QUEENS) {
         return true;
     }
 
-    for (column = 0; column < NUMBER_OF_QUEENS; column++)
-    {
+    for (column = 0; column < NUMBER_OF_QUEENS; column++) {
         queens[row] = column;
         if (is_valid_position(row, column) and search_row_position(row + 1))
         {
@@ -51,16 +44,13 @@ bool search_row_position(unsigned row)
     return false;
 }
 
-void print_result()
-{
+void print_result() {
     unsigned row, column;
 
     std::cout << "  a b c d e f g h"<< std::endl;
-    for (row = 0; row < NUMBER_OF_QUEENS; row++)
-    {
+    for (row = 0; row < NUMBER_OF_QUEENS; row++) {
         std::cout << row + 1 << " ";
-        for (column = 0; column < NUMBER_OF_QUEENS; column++)
-        {
+        for (column = 0; column < NUMBER_OF_QUEENS; column++) {
             std::printf(column == queens[row] ? "Q " : "X ");
         }
         std::cout << row + 1;

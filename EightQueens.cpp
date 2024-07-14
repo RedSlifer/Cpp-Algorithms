@@ -2,31 +2,26 @@
 #include <array>
 #include <ctime>
 
-int index(std::array<char, 8> array)
-{
+int index(std::array<char, 8> array) {
     unsigned i;
 
-    for (i = 0; i < 8; i++)
-    {
-        if (array[i] == 'Q')
-        {
+    for (i = 0; i < 8; i++) {
+        if (array[i] == 'Q') {
             return i;
         }
     }
 }
 
-int main()
-{
+int main() {
     std::array<std::array<char, 8>, 8> chessboard;
     unsigned i, j, k, drawn_position, queen_position, next_queen_position;
 
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 8; j++)
-        {
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 8; j++) {
             chessboard[i][j] = 'X';
         }
     }
+
     // Valid output to test
     /*
     chessboard[0][0] = 'Q';
@@ -41,30 +36,24 @@ int main()
     
     srand(time(0));
 
-    for (i = 0; i < 8; i++)
-    {
+    for (i = 0; i < 8; i++) {
         drawn_position  = rand() % 8;
         chessboard[i][drawn_position] = 'Q';
     }
     
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 8; j++)
-        {
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 8; j++) {
             
             std::cout << chessboard[i][j] << " ";
         }
         std::cout << std::endl;
     }
 
-    for (i = 0; i < 7; i++)
-    {
+    for (i = 0; i < 7; i++) {
         queen_position = index(chessboard[i]);
-        for (j = i + 1; j <= 7; j++)
-        {
+        for (j = i + 1; j <= 7; j++) {
            next_queen_position = index(chessboard[j]);
-           if ((queen_position == next_queen_position) || (abs(i - j) == abs(queen_position - next_queen_position)))
-           {
+           if ((queen_position == next_queen_position) || (abs(i - j) == abs(queen_position - next_queen_position))) {
                std::cout << "Invalid Queens disposition";
                goto end; 
            }

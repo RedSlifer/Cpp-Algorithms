@@ -2,8 +2,7 @@
 #define MATRIX_H
 #include <vector>
 
-class Matrix
-{
+class Matrix {
 private:
     std::vector<std::vector<unsigned int>> elements;
 

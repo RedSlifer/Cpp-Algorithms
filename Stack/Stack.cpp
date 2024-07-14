@@ -4,38 +4,32 @@
 #include "Stack.h"
 
 template <typename T>
-Stack<T>::Stack()
-{
+Stack<T>::Stack() {
     this -> elements.reserve(1);
 }
 
 template <typename T>
-Stack<T>::Stack(unsigned size)
-{
+Stack<T>::Stack(unsigned size) {
     this -> elements.reserve(size);
 }
 
 template <typename T>
-bool Stack<T>::is_empty()
-{
+bool Stack<T>::is_empty() {
     return (this -> elements.size() == 0);
 }
 
 template <typename T>
-T Stack<T>::peek()
-{
+T Stack<T>::peek() {
     return this -> elements.back();
 }
 
 template <typename T>
-void Stack<T>::push(T value)
-{
+void Stack<T>::push(T value) {
     this -> elements.push_back(value);
 }
 
 template <typename T>
-T Stack<T>::pop()
-{
+T Stack<T>::pop() {
     T peek_element = this -> elements.back();
     this -> elements.pop_back();
 
@@ -43,16 +37,13 @@ T Stack<T>::pop()
 }
 
 template <typename T>
-unsigned Stack<T>::get_size() const
-{
+unsigned Stack<T>::get_size() const {
     return this -> elements.size();
 }
 
 template <typename T>
-void Stack<T>::print()
-{
-    for (auto element : this -> elements)
-    {
+void Stack<T>::print() {
+    for (auto element : this -> elements) {
        std::cout << element << " ";
     }
 

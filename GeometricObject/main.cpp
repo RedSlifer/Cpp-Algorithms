@@ -3,8 +3,7 @@
 #include "Circle.h"
 #include "Rectangle.h"
 
-int main()
-{
+int main() {
     GeometricObject geometric_object;
     Circle circle_object;
     Rectangle rectangle_object;

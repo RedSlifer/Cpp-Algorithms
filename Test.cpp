@@ -1,7 +1,6 @@
 #include <iostream>
 
-int main()
-{
+int main() {
 	int number {100};
 
 	auto value = [number]()mutable{number += 100; std::cout << number << std::endl;};

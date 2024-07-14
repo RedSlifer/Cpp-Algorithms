@@ -2,11 +2,9 @@
 #define SINGLYLINKEDLIST_H
 
 template <typename T>
-class SinglyLinkedList
-{
+class SinglyLinkedList {
 private:
-    struct Node
-    {
+    struct Node {
         T element;  // Element saved by the node
         Node* link;  // Link to the next node
     };

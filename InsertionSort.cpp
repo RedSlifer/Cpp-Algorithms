@@ -4,8 +4,7 @@
 std::vector<float> insertion_sort(std::vector<float>& list);
 void list_printer(const std::vector<float>& list);
 
-int main()
-{
+int main() {
     std::vector<float> list {1, 9, 4.5, 10.6, 5.7, -4.5};
 
     insertion_sort(list);
@@ -14,18 +13,15 @@ int main()
     return 0;
 }
 
-std::vector<float> insertion_sort(std::vector<float>& list)
-{
+std::vector<float> insertion_sort(std::vector<float>& list) {
     int i, j;
     float pivot;
 
-    for (i = 1; i < list.size(); i++)
-    {
+    for (i = 1; i < list.size(); i++) {
         pivot = list[i];
         j = i - 1;
 
-        while (j >= 0 and list[j] > pivot)  //Shifts elements to the right
-        {
+        while (j >= 0 and list[j] > pivot) {  //Shifts elements to the right
             list[j + 1] = list[j];
             j--;
         }
@@ -35,10 +31,8 @@ std::vector<float> insertion_sort(std::vector<float>& list)
     return list;
 }
 
-void list_printer(const std::vector<float>& list)
-{
-    for (auto& i : list)
-    {
+void list_printer(const std::vector<float>& list) {
+    for (auto& i : list) {
         std::cout << i << " ";
     }
 }

@@ -2,8 +2,7 @@
 #define RECTANGLE_H
 #include "GeometricObject.h"
 
-class Rectangle: public GeometricObject
-{
+class Rectangle: public GeometricObject {
 private:
     double width;
     double height;

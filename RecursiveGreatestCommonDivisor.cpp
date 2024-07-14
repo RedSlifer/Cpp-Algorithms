@@ -2,8 +2,7 @@
 
 unsigned greatest_common_divisor(unsigned number_1, unsigned number_2);
 
-int main()
-{
+int main() {
     unsigned number_1, number_2;
 
     std::cout << "Enter with two numbers:";
@@ -14,14 +13,11 @@ int main()
     return 0;
 }
 
-unsigned greatest_common_divisor(unsigned number_1, unsigned number_2)
-{
-    if (number_1 % number_2 == 0)
-    {
+unsigned greatest_common_divisor(unsigned number_1, unsigned number_2) {
+    if (number_1 % number_2 == 0) {
         return number_2;
     }
-    else
-    {
+    else {
         return greatest_common_divisor(number_2, number_1 % number_2);
     }
 }

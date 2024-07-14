@@ -1,25 +1,22 @@
 #include <iostream>
 
-void reverse_array(const int array[], int new_array[], int size)
-{
+void reverse_array(const int array[], int new_array[], int size) {
     unsigned i, j;
-    for (i = 0, j = size - 1; i < size; i++, j--)
-    {
+
+    for (i = 0, j = size - 1; i < size; i++, j--) {
         new_array[j] = array[i];
     }
 }
 
-void print_array(const int array[], int size)
-{
+void print_array(const int array[], int size) {
     unsigned i;
-    for (i = 0; i < size; i++)
-    {
+
+    for (i = 0; i < size; i++) {
         std::cout << array[i] << " ";
     }
 }
 
-int main()
-{
+int main() {
     const int SIZE = 6;
     int array[] = {1, 2, 3, 4, 5, 6};
     int new_array[SIZE];

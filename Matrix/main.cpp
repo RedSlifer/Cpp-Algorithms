@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Matrix.h"
 
-int main()
-{
+int main() {
     Matrix my_matrix;
 
     my_matrix.matrix_builder(2, 2);

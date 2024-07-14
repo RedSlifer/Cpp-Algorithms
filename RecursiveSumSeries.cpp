@@ -2,8 +2,7 @@
 
 float recursive_sum_series(float n);
 
-int main()
-{
+int main() {
     float n;
 
     std::cout << "Enter with n:";
@@ -14,14 +13,11 @@ int main()
     return 0;
 }
 
-float recursive_sum_series(float n)
-{
-    if (n == 1)
-    {
+float recursive_sum_series(float n) {
+    if (n == 1) {
         return 1;
     }
-    else
-    {
+    else {
         return recursive_sum_series(n - 1) + (3 / (n + 2));
     }
 }

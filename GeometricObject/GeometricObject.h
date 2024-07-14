@@ -2,8 +2,7 @@
 #define GEOMETRICOBJECT_H
 #include <string>
 
-class GeometricObject
-{
+class GeometricObject {
 private:
     std::string color;
     bool filled;

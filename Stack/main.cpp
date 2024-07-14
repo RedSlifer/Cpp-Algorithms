@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Stack.cpp"
 
-int main()
-{
+int main() {
     Stack<int> int_stack;
     Stack<std::string> string_stack;
 

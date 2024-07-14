@@ -1,8 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-int main()
-{
+int main() {
     int radius;
     double point_1_x, point_1_y, point_2_x, point_2_y, point_3_x, point_3_y, point_4_x, point_4_y, point_5_x, point_5_y; 
     double angle = 0.628319;

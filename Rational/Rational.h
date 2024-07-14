@@ -1,8 +1,7 @@
 #ifndef RATIONAL_H
 #define RATIONAL_H
 
-class Rational
-{
+class Rational {
 private:
     int numerator, denominator;
 
